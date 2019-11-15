@@ -1,0 +1,20 @@
+<view>
+<van-search
+  value="{{ value }}"
+  placeholder="请输入地址关键词"
+  use-action-slot
+  bind:search="onSearch"
+>
+  <view slot="action" bind:tap="onSearch">搜索</view>
+</van-search>
+<van-tabs active="{{ active }}" bind:click="onClick">
+  <van-tab title="新闻">
+<van-panel title="{{item.title}}" wx:for="{{newsmessagedata}}" wx:for-item="item" wx:for-index="uniquekey" wx:key="key">
+  <view>{{item.url}}</view>
+</van-panel>
+  </van-tab>
+  <van-tab title="笑话">内容 2</van-tab>
+  <van-tab title="天气">内容 3</van-tab>
+  <van-tab title="不晓得">内容 4</van-tab>
+</van-tabs>
+</view>
