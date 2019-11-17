@@ -6,7 +6,9 @@ Page({
    */
   data: {
     newsmessagedata:{},
-    showtest:123
+    jokemessagedata:{},
+    weathermessagedata:{}
+    
   },
   newsmessage:function(){
     wx.showToast({
@@ -34,20 +36,74 @@ Page({
       }
     })
   },
+  jokemessage:function(){
+    wx.showToast({
+      title: '数据加载中',
+      icon: 'loading'
+    })
+    wx.request({
+      url: 'http://v.juhe.cn/joke/content/list.php',
+      method: 'GET',
+      data: {
+        sort: 'asc',
+        time: Date.parse(new Date())/1000 + '',
+        key: '58778b99fca51638ac0479d86af0fcdb'
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      complete() {
+        wx.hideLoading()
+      },
+      success: res => {
+        console.log(res.data.result.data)
+        this.setData({
+          jokemessagedata: res.data.result.data
+        })
+      }
+    })
+  },
+  weathermessage:function(){
+    wx.showToast({
+      title: '数据加载中',
+      icon: 'loading'
+    })
+    wx.request({
+      url: 'http://v.juhe.cn/weather/index',
+      method: 'GET',
+      data: {
+        cityname: '武汉',
+        key: '7d0541ca2efa009788735b28040b4026'
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      complete() {
+        wx.hideLoading()
+      },
+      success: res => {
+        console.log(res.data.result)
+        this.setData({
+          weathermessagedata: res.data.result
+        })
+      }
+    })
+  },
   onClick:function(event){
     console.log(event.detail.title)
     if (event.detail.title == "新闻"){
       this.newsmessage();
+    }else if(event.detail.title == "笑话"){
+      this.jokemessage();
+    }else if(event.detail.title == "天气"){
+      this.weathermessage();
     }
-  },
-  test:function(){
-    this.showtest = 1
-    console.log(this.showtest)
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.newsmessage();
   },
 
   /**
