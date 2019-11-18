@@ -1,15 +1,10 @@
 <view>
-  <!-- <van-search
-  value="{{ value }}"
-  placeholder="请输入地址关键词"
-  use-action-slot
-  bind:search="onSearch"
->
-  <view slot="action" bind:tap="onSearch">搜索</view>
-</van-search> -->
   <van-tabs active="{{ active }}" bind:click="onClick">
     <van-tab title="新闻">
       <van-panel title="{{item.title}}" wx:for="{{newsmessagedata}}" wx:for-item="item" wx:for-index="uniquekey" wx:key="key">
+        <image src="{{item.thumbnail_pic_s}}"></image>
+        <image src="{{item.thumbnail_pic_s02}}"></image>
+        <image  src="{{item.thumbnail_pic_s03}}"></image>
       </van-panel>
     </van-tab>
     <van-tab title="笑话">
@@ -28,6 +23,6 @@
 
       </van-panel>
     </van-tab>
-    <van-tab title="不晓得">内容 4</van-tab>
+    <van-tab title="老黄历">内容 4</van-tab>
   </van-tabs>
 </view>

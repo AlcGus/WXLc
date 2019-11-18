@@ -45,7 +45,7 @@ Page({
       url: 'http://v.juhe.cn/joke/content/list.php',
       method: 'GET',
       data: {
-        sort: 'asc',
+        sort: 'desc',
         time: Date.parse(new Date())/1000 + '',
         key: '58778b99fca51638ac0479d86af0fcdb'
       },
