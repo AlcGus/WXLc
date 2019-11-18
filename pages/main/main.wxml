@@ -1,10 +1,10 @@
 <view>
   <van-tabs active="{{ active }}" bind:click="onClick">
     <van-tab title="新闻">
-      <van-panel title="{{item.title}}" wx:for="{{newsmessagedata}}" wx:for-item="item" wx:for-index="uniquekey" wx:key="key">
+      <van-panel bindtap="openurl({{item.url}})" title="{{item.title}}" wx:for="{{newsmessagedata}}" wx:for-item="item" wx:for-index="uniquekey" wx:key="key">
         <image src="{{item.thumbnail_pic_s}}"></image>
         <image src="{{item.thumbnail_pic_s02}}"></image>
-        <image  src="{{item.thumbnail_pic_s03}}"></image>
+        <image src="{{item.thumbnail_pic_s03}}"></image>
       </van-panel>
     </van-tab>
     <van-tab title="笑话">
@@ -19,10 +19,14 @@
         <text>风速：{{weathermessagedata.sk.wind_strength}}\n</text>
         <text>湿度：{{weathermessagedata.sk.humidity}}\n</text>
       </view>
-      <van-panel title="{{item}}" wx:for="{{weathermessagedata.future}}" wx:for-item="item" wx:for-index="uniquekey" wx:key="key">
-
-      </van-panel>
     </van-tab>
-    <van-tab title="老黄历">内容 4</van-tab>
+    <van-tab title="老黄历">
+      <text>阳历：{{almanacmessagedata.yangli}}\n</text>
+      <text>阴历：{{almanacmessagedata.yinli}}\n</text>
+      <text>五行：{{almanacmessagedata.wuxing}}\n</text>
+      <text>冲煞：{{almanacmessagedata.chongsha}}\n</text>
+      <text>宜：{{almanacmessagedata.yi}}\n</text>
+      <text>忌：{{almanacmessagedata.ji}}\n</text>
+    </van-tab>
   </van-tabs>
 </view>
