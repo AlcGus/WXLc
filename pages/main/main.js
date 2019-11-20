@@ -9,7 +9,7 @@ Page({
     jokemessagedata: {},
     weathermessagedata: {},
     almanacmessagedata: {},
-    messagedata: {}
+    messagedata: {},
   },
   newsmessage: function() {
     var data = {
@@ -26,12 +26,14 @@ Page({
     }
     this.Commonfun('http://v.juhe.cn/joke/content/list.php', data, 2)
   },
-  weathermessage: function() {
+  weathermessage: function (longitude, latitude) {
     var data = {
-      cityname: '武汉',
+      // cityname: '武汉',
+      lon:longitude,
+      lat:latitude,
       key: '7d0541ca2efa009788735b28040b4026'
     }
-    this.Commonfun('http://v.juhe.cn/weather/index', data, 3)
+    this.Commonfun('http://v.juhe.cn/weather/geo', data, 3)
   },
   almanacmessage: function() {
     var data = {
@@ -40,6 +42,17 @@ Page({
     }
     this.Commonfun('http://v.juhe.cn/laohuangli/d', data, 4)
   },
+  loadInfo: function () {
+    var that = this;
+    wx.getLocation({
+      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
+      success: res => {
+        var latitude = res.latitude//维度
+        var longitude = res.longitude//经度
+        this.weathermessage(longitude,latitude)
+      }
+    })
+  },
   onClick: function(event) {
     // console.log(event.detail.title)
     if (event.detail.title == "新闻") {
@@ -47,7 +60,8 @@ Page({
     } else if (event.detail.title == "笑话") {
       this.jokemessage();
     } else if (event.detail.title == "天气") {
-      this.weathermessage();
+      this.loadInfo();
+      // this.weathermessage();
     } else {
       this.almanacmessage();
     }

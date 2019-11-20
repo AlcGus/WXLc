@@ -1,9 +1,25 @@
 /* pages/main/main.wxss */
-image{
+
+image {
   width: 100px;
   height: 100px;
-  padding: 0 0 0 15px;
+  margin-right: 5px;
 }
-.van-cell{
-  border-bottom: none;
+
+.newimage {
+  padding-left: 15px;
+}
+
+.weathertab .weatherimage {
+  display: flex;
+  justify-content: center;
+}
+
+.weathertab .weathertext {
+  margin-left: 30px;
+  margin-top: 10px;
+}
+.weathertab .weathertext text{
+  margin-top:10px;
+  display: block;
 }

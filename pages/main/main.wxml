@@ -2,22 +2,45 @@
   <van-tabs active="{{ active }}" bind:click="onClick">
     <van-tab title="新闻">
       <van-panel bindtap="openurl({{item.url}})" title="{{item.title}}" wx:for="{{newsmessagedata}}" wx:for-item="item" wx:for-index="uniquekey" wx:key="key">
-        <image src="{{item.thumbnail_pic_s}}"></image>
-        <image src="{{item.thumbnail_pic_s02}}"></image>
-        <image src="{{item.thumbnail_pic_s03}}"></image>
+        <view class="newimage">
+          <image src="{{item.thumbnail_pic_s}}"></image>
+          <image src="{{item.thumbnail_pic_s02}}"></image>
+          <image src="{{item.thumbnail_pic_s03}}"></image>
+        </view>
       </van-panel>
     </van-tab>
     <van-tab title="笑话">
       <van-panel title="{{item.content}}" wx:for="{{jokemessagedata}}" wx:for-item="item" wx:for-index="uniquekey" wx:key="key">
       </van-panel>
     </van-tab>
-    <van-tab title="天气">
+    <van-tab class="weathertab" title="天气">
       <view>
-        <text>当前天气\n</text>
-        <text>温度：{{weathermessagedata.sk.temp}}\n</text>
-        <text>风向：{{weathermessagedata.sk.wind_direction}}\n</text>
-        <text>风速：{{weathermessagedata.sk.wind_strength}}\n</text>
-        <text>湿度：{{weathermessagedata.sk.humidity}}\n</text>
+        <view class="weatherimage">
+          <view wx-if="{{weathermessagedata.today.weather == '晴天'}}">
+            <image src="../../image/晴天.PNG"></image>
+          </view>
+          <view wx-if="{{weathermessagedata.today.weather == '阴天'}}">
+            <image src="../../image/阴天.PNG"></image>
+          </view>
+          <view wx-if="{{weathermessagedata.today.weather == '多云'}}">
+            <image src="../../image/局部多云.PNG"></image>
+          </view>
+          <view wx-if="{{weathermessagedata.today.weather == '雨天'}}">
+            <image src="../../image/雨天.PNG"></image>
+          </view>
+          <view wx-if="{{weathermessagedata.today.weather == '雪天'}}">
+            <image src="../../image/雪天.PNG"></image>
+          </view>
+        </view>
+        <view class="weathertext"> 
+          <text>城市：{{weathermessagedata.today.city}}\n</text>
+          <text>天气：{{weathermessagedata.today.weather}}\n</text>
+          <text>今日温度：{{weathermessagedata.today.temperature}}\n</text>
+          <text>当前温度：{{weathermessagedata.sk.temp}}℃\n</text>
+          <text>风向：{{weathermessagedata.sk.wind_direction}}\n</text>
+          <text>风速：{{weathermessagedata.sk.wind_strength}}\n</text>
+          <text>湿度：{{weathermessagedata.sk.humidity}}\n</text>
+        </view>
       </view>
     </van-tab>
     <van-tab title="老黄历">

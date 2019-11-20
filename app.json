@@ -2,8 +2,8 @@
   "pages": [
     "pages/main/main",
     "pages/index/index",
-    "pages/logs/logs"
-    
+    "pages/logs/logs",
+    "pages/webshow"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -11,12 +11,18 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "usingComponents":{
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "usingComponents": {
     "van-tab": "miniprogram_npm/vant-weapp/tab/index",
     "van-tabs": "miniprogram_npm/vant-weapp/tabs/index",
     "van-tree-select": "miniprogram_npm/vant-weapp/tree-select/index",
     "van-search": "miniprogram_npm/vant-weapp/search/index",
-    "van-panel": "miniprogram_npm/vant-weapp/panel/index"
+    "van-panel": "miniprogram_npm/vant-weapp/panel/index",
+    "van-nav-bar": "miniprogram_npm/vant-weapp/nav-bar/index"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
