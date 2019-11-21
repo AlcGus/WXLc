@@ -103,17 +103,19 @@ Page({
       }
     })
   },
-  openurl: function(url) {
+  openurl: function(event) {
     wx.navigateTo({
-      url: url,
+      // url: event.currentTarget.dataset['index']
+      url: '../webshow/webshow?url=' + event.currentTarget.dataset['index']
     })
+    console.log(event)
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     // 新闻每日只有100次的次数限制，开发期间暂时屏蔽
-    // this.newsmessage();
+    this.newsmessage();
   },
 
   /**

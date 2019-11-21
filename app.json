@@ -3,14 +3,14 @@
     "pages/main/main",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/webshow"
+    "pages/webshow/webshow"
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#C6DFEC",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh":true
+    "enablePullDownRefresh": true
   },
   "permission": {
     "scope.userLocation": {
@@ -20,8 +20,6 @@
   "usingComponents": {
     "van-tab": "miniprogram_npm/vant-weapp/tab/index",
     "van-tabs": "miniprogram_npm/vant-weapp/tabs/index",
-    "van-tree-select": "miniprogram_npm/vant-weapp/tree-select/index",
-    "van-search": "miniprogram_npm/vant-weapp/search/index",
     "van-panel": "miniprogram_npm/vant-weapp/panel/index",
     "van-nav-bar": "miniprogram_npm/vant-weapp/nav-bar/index"
   },

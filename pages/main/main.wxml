@@ -1,7 +1,7 @@
 <view>
   <van-tabs active="{{ active }}" bind:click="onClick">
     <van-tab title="新闻">
-      <van-panel bindtap="openurl({{item.url}})" title="{{item.title}}" wx:for="{{newsmessagedata}}" wx:for-item="item" wx:for-index="uniquekey" wx:key="key">
+      <van-panel bindtap='openurl' title="{{item.title}}" wx:for="{{newsmessagedata}}" wx:for-item="item" wx:for-index="uniquekey" data-index="{{item.url}}" wx:key="key">
         <view class="newimage">
           <image src="{{item.thumbnail_pic_s}}"></image>
           <image src="{{item.thumbnail_pic_s02}}"></image>
@@ -16,19 +16,19 @@
     <van-tab class="weathertab" title="天气">
       <view>
         <view class="weatherimage">
-          <view wx-if="{{weathermessagedata.today.weather == '晴天'}}">
+          <view wx-if="{{weathermessagedata.today.weather == '晴'}}">
             <image src="../../image/qt.png"></image>
           </view>
-          <view wx-if="{{weathermessagedata.today.weather == '阴天'}}">
+          <view wx-if="{{weathermessagedata.today.weather == '阴'}}">
             <image src="../../image/yt.png"></image>
           </view>
           <view wx-if="{{weathermessagedata.today.weather == '多云'}}">
             <image src="../../image/jbdy.png"></image>
           </view>
-          <view wx-if="{{weathermessagedata.today.weather == '雨天'}}">
+          <view wx-if="{{weathermessagedata.today.weather == '雨'}}">
             <image src="../../image/yut.png"></image>
           </view>
-          <view wx-if="{{weathermessagedata.today.weather == '雪天'}}">
+          <view wx-if="{{weathermessagedata.today.weather == '雪'}}">
             <image src="../../image/xt.png"></image>
           </view>
           <view wx-if="{{weathermessagedata.today.weather == '多云转晴'}}">
@@ -48,15 +48,15 @@
     </van-tab>
     <van-tab title="老黄历" class="almanactab">
       <view class="almanacimage">
-      <image src="../../image/zhu.png"></image>
+        <image src="../../image/zhu.png"></image>
       </view>
       <view class="almanactext">
-      <text>阳历：{{almanacmessagedata.yangli}}\n</text>
-      <text>阴历：{{almanacmessagedata.yinli}}\n</text>
-      <text>五行：{{almanacmessagedata.wuxing}}\n</text>
-      <text>冲煞：{{almanacmessagedata.chongsha}}\n</text>
-      <text>宜：{{almanacmessagedata.yi}}\n</text>
-      <text>忌：{{almanacmessagedata.ji}}\n</text>
+        <text>阳历：{{almanacmessagedata.yangli}}\n</text>
+        <text>阴历：{{almanacmessagedata.yinli}}\n</text>
+        <text>五行：{{almanacmessagedata.wuxing}}\n</text>
+        <text>冲煞：{{almanacmessagedata.chongsha}}\n</text>
+        <text>宜：{{almanacmessagedata.yi}}\n</text>
+        <text>忌：{{almanacmessagedata.ji}}\n</text>
       </view>
     </van-tab>
   </van-tabs>
