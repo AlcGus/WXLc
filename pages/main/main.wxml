@@ -17,22 +17,25 @@
       <view>
         <view class="weatherimage">
           <view wx-if="{{weathermessagedata.today.weather == '晴天'}}">
-            <image src="../../image/晴天.PNG"></image>
+            <image src="../../image/qt.png"></image>
           </view>
           <view wx-if="{{weathermessagedata.today.weather == '阴天'}}">
-            <image src="../../image/阴天.PNG"></image>
+            <image src="../../image/yt.png"></image>
           </view>
           <view wx-if="{{weathermessagedata.today.weather == '多云'}}">
-            <image src="../../image/局部多云.PNG"></image>
+            <image src="../../image/jbdy.png"></image>
           </view>
           <view wx-if="{{weathermessagedata.today.weather == '雨天'}}">
-            <image src="../../image/雨天.PNG"></image>
+            <image src="../../image/yut.png"></image>
           </view>
           <view wx-if="{{weathermessagedata.today.weather == '雪天'}}">
-            <image src="../../image/雪天.PNG"></image>
+            <image src="../../image/xt.png"></image>
+          </view>
+          <view wx-if="{{weathermessagedata.today.weather == '多云转晴'}}">
+            <image src="../../image/qt.png"></image>
           </view>
         </view>
-        <view class="weathertext"> 
+        <view class="weathertext">
           <text>城市：{{weathermessagedata.today.city}}\n</text>
           <text>天气：{{weathermessagedata.today.weather}}\n</text>
           <text>今日温度：{{weathermessagedata.today.temperature}}\n</text>
@@ -43,13 +46,18 @@
         </view>
       </view>
     </van-tab>
-    <van-tab title="老黄历">
+    <van-tab title="老黄历" class="almanactab">
+      <view class="almanacimage">
+      <image src="../../image/zhu.png"></image>
+      </view>
+      <view class="almanactext">
       <text>阳历：{{almanacmessagedata.yangli}}\n</text>
       <text>阴历：{{almanacmessagedata.yinli}}\n</text>
       <text>五行：{{almanacmessagedata.wuxing}}\n</text>
       <text>冲煞：{{almanacmessagedata.chongsha}}\n</text>
       <text>宜：{{almanacmessagedata.yi}}\n</text>
       <text>忌：{{almanacmessagedata.ji}}\n</text>
+      </view>
     </van-tab>
   </van-tabs>
 </view>

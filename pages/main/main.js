@@ -112,7 +112,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.newsmessage();
+    // 新闻每日只有100次的次数限制，开发期间暂时屏蔽
+    // this.newsmessage();
   },
 
   /**
@@ -147,7 +148,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    wx.stopPullDownRefresh();  //停止下拉刷新
   },
 
   /**
