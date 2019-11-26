@@ -25,7 +25,7 @@
           <view wx-if="{{weathermessagedata.today.weather == '多云'}}">
             <image src="../../image/jbdy.png"></image>
           </view>
-          <view wx-if="{{weathermessagedata.today.weather == '雨'}}">
+          <view wx-if="{{weathermessagedata.today.weather == '小雨'}}">
             <image src="../../image/yut.png"></image>
           </view>
           <view wx-if="{{weathermessagedata.today.weather == '雪'}}">

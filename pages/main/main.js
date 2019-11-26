@@ -16,7 +16,7 @@ Page({
       type: 'top',
       key: '0138e3dbc1197ec65b5842a165e01506'
     }
-    this.Commonfun("http://v.juhe.cn/toutiao/index", data, 1)
+    this.Commonfun("https://v.juhe.cn/toutiao/index", data, 1)
   },
   jokemessage: function() {
     var data = {
@@ -24,7 +24,7 @@ Page({
       time: Date.parse(new Date()) / 1000 + '',
       key: '58778b99fca51638ac0479d86af0fcdb'
     }
-    this.Commonfun('http://v.juhe.cn/joke/content/list.php', data, 2)
+    this.Commonfun('https://v.juhe.cn/joke/content/list.php', data, 2)
   },
   weathermessage: function (longitude, latitude) {
     var data = {
@@ -33,14 +33,14 @@ Page({
       lat:latitude,
       key: '7d0541ca2efa009788735b28040b4026'
     }
-    this.Commonfun('http://v.juhe.cn/weather/geo', data, 3)
+    this.Commonfun('https://v.juhe.cn/weather/geo', data, 3)
   },
   almanacmessage: function() {
     var data = {
       date: new Date().getFullYear() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getDate(),
       key: 'd87bd1c31b940eeaca302281659f7f7d'
     }
-    this.Commonfun('http://v.juhe.cn/laohuangli/d', data, 4)
+    this.Commonfun('https://v.juhe.cn/laohuangli/d', data, 4)
   },
   loadInfo: function () {
     var that = this;
