@@ -1,4 +1,5 @@
 <!--pages/webshow/webshow.wxml-->
+<!-- 个人版开发不支持web-view -->
 <view>
 <web-view src="{{url}}"></web-view>
 </view>

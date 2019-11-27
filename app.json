@@ -21,7 +21,8 @@
     "van-tab": "miniprogram_npm/vant-weapp/tab/index",
     "van-tabs": "miniprogram_npm/vant-weapp/tabs/index",
     "van-panel": "miniprogram_npm/vant-weapp/panel/index",
-    "van-nav-bar": "miniprogram_npm/vant-weapp/nav-bar/index"
+    "van-nav-bar": "miniprogram_npm/vant-weapp/nav-bar/index",
+    "van-search": "miniprogram_npm/vant-weapp/search/index"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -27,11 +27,13 @@ image {
   display: flex;
   justify-content: center;
 }
-.almanactab .almanactext{
+.almanactab .almanactext,
+.cardtab .cardtext{
   margin-left: 30px;
   margin-top: 10px;
 }
-.almanactab .almanactext text{
+.almanactab .almanactext text,
+.cardtab .cardtext text{
   margin-top: 10px;
   display: block;
 }

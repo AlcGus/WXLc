@@ -10,6 +10,7 @@ Page({
     weathermessagedata: {},
     almanacmessagedata: {},
     messagedata: {},
+    cardmessagedata: {}
   },
   newsmessage: function() {
     var data = {
@@ -26,11 +27,11 @@ Page({
     }
     this.Commonfun('https://v.juhe.cn/joke/content/list.php', data, 2)
   },
-  weathermessage: function (longitude, latitude) {
+  weathermessage: function(longitude, latitude) {
     var data = {
       // cityname: '武汉',
-      lon:longitude,
-      lat:latitude,
+      lon: longitude,
+      lat: latitude,
       key: '7d0541ca2efa009788735b28040b4026'
     }
     this.Commonfun('https://v.juhe.cn/weather/geo', data, 3)
@@ -42,14 +43,21 @@ Page({
     }
     this.Commonfun('https://v.juhe.cn/laohuangli/d', data, 4)
   },
-  loadInfo: function () {
+  onSearch: function(e) {
+    var data = {
+      cardno: e.detail,
+      key: '83899761e35dd8ff0f5998ec35d9b3fc'
+    }
+    this.Commonfun('https://apis.juhe.cn/idcard/index', data, 5)
+  },
+  loadInfo: function() {
     var that = this;
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: res => {
-        var latitude = res.latitude//维度
-        var longitude = res.longitude//经度
-        this.weathermessage(longitude,latitude)
+        var latitude = res.latitude //维度
+        var longitude = res.longitude //经度
+        this.weathermessage(longitude, latitude)
       }
     })
   },
@@ -62,8 +70,10 @@ Page({
     } else if (event.detail.title == "天气") {
       this.loadInfo();
       // this.weathermessage();
-    } else {
+    } else if (event.detail.title == "老黄历") {
       this.almanacmessage();
+    } else if (event.detail.title == "身份证查询") {
+      this.onSearch();
     }
   },
   Commonfun: function(url, path, type) {
@@ -82,7 +92,7 @@ Page({
         wx.hideLoading()
       },
       success: res => {
-        // console.log(res.data.result)
+        console.log(res.data.result)
         if (type == 1) {
           this.setData({
             newsmessagedata: res.data.result.data
@@ -95,9 +105,13 @@ Page({
           this.setData({
             weathermessagedata: res.data.result
           })
-        } else {
+        } else if (type == 4) {
           this.setData({
             almanacmessagedata: res.data.result
+          })
+        } else if (type == 5) {
+          this.setData({
+            cardmessagedata: res.data.result
           })
         }
       }
@@ -106,7 +120,7 @@ Page({
   openurl: function(event) {
     wx.navigateTo({
       // url: event.currentTarget.dataset['index']
-      url: '../webshow/webshow?url=' + event.currentTarget.dataset['index']
+      url: '../webshow/webshow?url=' + event.currentTarget.dataset['index'].replace('http', 'https')
     })
     console.log(event)
   },
@@ -115,7 +129,8 @@ Page({
    */
   onLoad: function(options) {
     // 新闻每日只有100次的次数限制，开发期间暂时屏蔽
-    this.newsmessage();
+    // 个人版目前不支持新闻类信息，更改为笑话
+    this.jokemessage();
   },
 
   /**
@@ -150,7 +165,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    wx.stopPullDownRefresh();  //停止下拉刷新
+    wx.stopPullDownRefresh(); //停止下拉刷新
   },
 
   /**
