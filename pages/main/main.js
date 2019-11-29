@@ -92,7 +92,7 @@ Page({
         wx.hideLoading()
       },
       success: res => {
-        console.log(res.data.result)
+        // console.log(res.data.result)
         if (type == 1) {
           this.setData({
             newsmessagedata: res.data.result.data

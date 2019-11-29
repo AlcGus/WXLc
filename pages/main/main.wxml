@@ -62,7 +62,7 @@
         <text>忌：{{almanacmessagedata.ji}}\n</text>
       </view>
     </van-tab>
-    <van-tab title="身份证查询" class="cardtab">
+    <!-- <van-tab title="身份证查询" class="cardtab">
       <van-search placeholder="请输入搜索关键词" show-action bind:search="onSearch" bind:cancel="onCancel" />
       <view class="cardtext">
         <text>地区：{{cardmessagedata.area}}\n</text>
@@ -70,6 +70,6 @@
         <text>出生日期：{{cardmessagedata.birthday}}\n</text>
         <text wx:if="{{cardmessagedata.verify}}">异常：{{cardmessagedata.verify}}\n</text>
       </view>
-    </van-tab>
+    </van-tab> -->
   </van-tabs>
 </view>
