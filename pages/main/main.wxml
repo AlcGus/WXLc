@@ -31,6 +31,9 @@
           <view wx-if="{{weathermessagedata.today.weather == '小雨'}}">
             <image src="../../image/yut.png"></image>
           </view>
+          <view wx-if="{{weathermessagedata.today.weather == '多云转小雨'}}">
+            <image src="../../image/yut.png"></image>
+          </view>
           <view wx-if="{{weathermessagedata.today.weather == '雪'}}">
             <image src="../../image/xt.png"></image>
           </view>
